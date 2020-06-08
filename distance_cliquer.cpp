@@ -120,7 +120,7 @@ int main(int argc, char** argv)
 				is_divisor = true;
 			}
 		}
-		
+
 		if ( is_divisor == false )
 		{
 			for ( int i = 1; i < n; i++ )
@@ -387,14 +387,14 @@ void block(int i, bool cyclic)
 	{
 		// block BACKWARDS
 		int jpos = i - generators[j];
-		
-		while ( cyclic && jpos < 0) 
+
+		while ( cyclic && jpos < 0)
 		{
 			// continue until it is a value mod cyclicN
 			jpos += cur_cyclic_N;
 		}
-		
-		
+
+
 		if ( jpos >= 0 && blocked[jpos] == 0 )
 		{
 			num_unblocked--;

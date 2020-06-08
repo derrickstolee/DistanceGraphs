@@ -64,11 +64,11 @@ int getMaxIndepSizeCyclicUsing(int N, int n);
  */
 int main(int argc, char** argv)
 {
-	seconds_per_cayley_call = 10000000;
-
-	int minN, maxN;
+	int maxN = 100;
 	int num_gens = 0;
 	int* gens = 0;
+
+	seconds_per_cayley_call = 10000000;
 
 	for ( int i = 0; i < argc; i++ )
 	{
@@ -84,10 +84,6 @@ int main(int argc, char** argv)
 			{
 				gens[j] = atoi(argv[i + 1 + j]);
 			}
-		}
-		if ( i < argc - 1 && strcmp(argv[i], "-n") == 0 )
-		{
-			minN = atoi(argv[i + 1]);
 		}
 		if ( i < argc - 1 && strcmp(argv[i], "-t") == 0 )
 		{
@@ -115,8 +111,8 @@ int main(int argc, char** argv)
 
 	while ( cur_max_lower < cur_min_upper && n < maxN && (time(NULL) - start_time) < total_time )
 	{
-		bool is_divisor = false;		
-	
+		bool is_divisor = false;
+
 		for ( int i = 0; i < num_gens; i++ )
 		{
 			if ( (gens[i] % n) == 0 )
